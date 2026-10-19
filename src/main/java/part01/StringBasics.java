@@ -26,7 +26,7 @@ public class StringBasics {
         // TODO: Fix this method
 
         if (text.length() > maxLength) {
-            text.substring(0, maxLength);
+            text = text.substring(0, maxLength);
         }
         return text;
     }
@@ -41,7 +41,7 @@ public class StringBasics {
     public boolean parseYesOrNo(String text) {
         // FIXME: this seems to always return false, even when the `text` is "yes"
 
-        if (text.toLowerCase() == "yes") {
+        if (text.toLowerCase().equals("yes")) {
             return true;
         }
         return false;
@@ -61,7 +61,16 @@ public class StringBasics {
      * @return "fizz", "buzz", "fizzbuzz" or the given number as a string.
      */
     public String getFizzBuzz(int number) {
-        return "fizzbuzz"; // TODO: implement this method
+        
+        if (number % 3 == 0 && number % 5 == 0) {
+            return "fizzbuzz"; // TODO: implement this method
+        } else if (number % 5 == 0 ) {
+            return "buzz";
+        } else if (number % 3 == 0) {
+            return "fizz";
+        } else {
+           return Integer.toString(number);
+        }
     }
 
     /**
